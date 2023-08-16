@@ -16,8 +16,7 @@
   background-color: black;
   min-width: 300px; /* Minimum width of 400px */
   width: 90%; /* Full width on mobile */
-  max-width: 400px;
-  height: 90%; /* Maximum width growth of 50% */
+  max-width: 400px; /* Maximum width growth of 50% */
   box-sizing: border-box; /* Include padding and border in the width */
 
   display: flex;
@@ -129,7 +128,6 @@ form {
 .border-input > input {
   width: 100%;
   padding: 5px;
-  font-size: 1.25rem;
   border: none;
 }
 
@@ -159,7 +157,7 @@ form > button {
   border-radius: 10px;
   border-color: rgb(0, 132, 255);
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bolder;
   padding: 20px;
   margin: 5px 0;
