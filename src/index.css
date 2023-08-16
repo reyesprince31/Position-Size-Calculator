@@ -6,7 +6,6 @@
 
 .App {
   font-family: sans-serif;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +13,7 @@
 
 .card {
   background-color: black;
-  min-width: 300px; /* Minimum width of 400px */
+  /* Minimum width of 400px */
   width: 90%; /* Full width on mobile */
   max-width: 400px; /* Maximum width growth of 50% */
   box-sizing: border-box; /* Include padding and border in the width */
@@ -32,6 +31,8 @@
   background-clip: text;
   color: transparent;
   margin: 15px 0;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .result {
@@ -82,28 +83,43 @@
 }
 
 .inputValue,
-.account-size {
+.account-size,
+.pos-size {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+
+  margin-bottom: 10px;
+}
+
+.pos-size span {
+  font-weight: bold;
+  color: green;
+}
+
+.account-size p,
+.account-size span {
+  padding: 5px;
+  margin: auto;
 }
 
 .inputValue p {
   display: flex;
   flex-direction: column;
+
+  min-width: 100px;
+  flex-basis: calc(30% - 10px); /* Adjust the width of each item */
+  margin: 10px auto; /* Add some spacing between items */
 }
 
 .numbers p {
   display: flex;
   justify-content: space-between;
 
-  margin-bottom: 10px;
+  min-width: 150px;
   font-size: 1.25rem;
   font-weight: bold;
-}
-.numbers p span {
-  color: green;
-  margin-right: 10px;
 }
 
 .controls {
@@ -119,10 +135,15 @@ form {
 .border-input {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   border-radius: 10px;
   border: 2px solid black;
   padding: 5px;
   margin-bottom: 10px;
+}
+
+.border-input label {
+  cursor: pointer;
 }
 
 .border-input > input {
@@ -141,7 +162,7 @@ form {
 
 .border-input > input::placeholder {
   color: rgba(32, 27, 16, 0.343);
-  font-size: 1rem;
+  font-size: 0.75rem;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -159,7 +180,7 @@ form > button {
   width: 100%;
   font-size: 1.25rem;
   font-weight: bolder;
-  padding: 20px;
+  padding: 10px;
   margin: 5px 0;
 }
 

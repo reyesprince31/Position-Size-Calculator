@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Result from "./Result";
+import Result from "../result_components/Result";
 import Controls from "./Controls";
 
 function Card() {
@@ -41,7 +41,7 @@ function Card() {
             2);
 
     // Round to a fixed number of decimal places before using .toFixed()
-    const roundedLotSize = Number(calculatedLotSize.toFixed(2));
+    const roundedLotSize = Number(calculatedLotSize.toFixed(2)) + " lot";
 
     return roundedLotSize;
   }
@@ -99,6 +99,7 @@ function Card() {
         reset={reset}
         calculate={calculate}
         toSetInputPos={setInputtedPositionSize}
+        toSetPosSize={setPosSize}
         posSize={posSize}
         inputSize={inputtedPositionSize}
       />
