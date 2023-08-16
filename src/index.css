@@ -14,9 +14,9 @@
 
 .card {
   background-color: black;
-  min-width: 400px; /* Minimum width of 400px */
-  width: 100%; /* Full width on mobile */
-  max-width: 50%; /* Maximum width growth of 50% */
+  min-width: 300px; /* Minimum width of 400px */
+  width: 90%; /* Full width on mobile */
+  max-width: 400px; /* Maximum width growth of 50% */
   box-sizing: border-box; /* Include padding and border in the width */
 
   display: flex;
@@ -43,6 +43,22 @@
   flex-direction: column;
 }
 
+.account-size span {
+  color: green;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.result-p {
+  font-weight: bold;
+}
+
+.result-p span {
+  margin-top: 10px;
+  font-size: 1.25rem;
+  color: rgb(0, 132, 255);
+}
+
 .result h2 {
   text-align: center;
   margin-bottom: 10px;
@@ -54,19 +70,34 @@
   border-radius: 10px;
 }
 
-.numbers {
+.account-size,
+.numbers,
+.inputValue {
   background-color: whitesmoke;
-  padding: 10px 0;
+  padding: 10px;
+  margin: 10px;
   text-align: center;
   border-radius: 10px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.inputValue,
+.account-size {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputValue p {
+  display: flex;
+  flex-direction: column;
 }
 
 .numbers p {
   display: flex;
   justify-content: space-between;
 
-  margin: 10px;
+  margin-bottom: 10px;
   font-size: 1.25rem;
   font-weight: bold;
 }
@@ -84,23 +115,32 @@ form {
   padding: 20px;
 }
 
-form > input {
+.border-input {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.border-input > input {
   width: 100%;
   padding: 10px;
   font-size: 1.25rem;
-  margin-bottom: 10px;
-  border-radius: 10px;
+
+  border: none;
 }
 
-form > input:active,
-form > input:focus {
+.border-input > input:active,
+.border-input > input:focus {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
   outline: none;
-  border: 3px solid red; /* Change the border color */
-  color: red; /* Change the text color */
+  border: 3px solid rgb(0, 132, 255); /* Change the border color */
+  color: green; /* Change the text color */
 }
 
-form > input::placeholder {
+.border-input > input::placeholder {
   color: rgba(32, 27, 16, 0.343);
   font-size: 1rem;
 }
@@ -120,7 +160,7 @@ form > button {
   width: 100%;
   font-size: 1.5rem;
   font-weight: bolder;
-  padding: 10px;
+  padding: 20px;
   margin: 5px 0;
 }
 
