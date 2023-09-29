@@ -1,9 +1,15 @@
-import Card from "./components/card_components/Card";
+import Card from "./components/Card";
+import { CalculateProvider } from "./context/CalculateContext";
+import { ResultProvider } from "./context/ResultContext";
 
 export default function App() {
   return (
     <div className="App">
-      <Card />
+      <CalculateProvider>
+        <ResultProvider>
+          <Card />
+        </ResultProvider>
+      </CalculateProvider>
     </div>
   );
 }

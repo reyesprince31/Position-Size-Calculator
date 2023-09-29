@@ -1,6 +1,7 @@
-import React from "react";
+import { useResult } from "../../context/ResultContext";
 
-function InputValuesSection({ leverage, stopLoss, riskPercentage }) {
+function InputValuesSection() {
+  const { leverage, stopLoss, riskPercentage } = useResult();
   return (
     <div className="inputValue">
       <p className="result-p">

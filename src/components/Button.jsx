@@ -1,7 +1,9 @@
-function Button({ name, calculate, reset }) {
+function Button({ children, onClick, type }) {
   return (
     <>
-      <button onClick={name === "Calculate" ? calculate : reset}>{name}</button>
+      <button type={type} onClick={onClick}>
+        {children}
+      </button>
     </>
   );
 }

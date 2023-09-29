@@ -1,19 +1,14 @@
+import { useResult } from "../../context/ResultContext";
+import { useFormat } from "../../hooks/useFormat";
+
 import AccountSizeSection from "./AccountSizeSection";
 import InputValuesSection from "./InputValuesSection";
 import ResultNumberSection from "./ResultNumberSection";
 
-function Result({
-  formatCurrency,
-  accountSize,
-  leverage,
-  stopLoss,
-  riskPercentage,
-  forexLotSize,
-  lossValue,
-  tradeMargin,
-  positionSize,
-  isCorrect,
-}) {
+function Result() {
+  const { accountSize, lossValue, tradeMargin, positionSize } = useResult();
+  const { formatCurrency } = useFormat();
+
   const formattedAccountSize = formatCurrency(accountSize);
   const formattedLossValue = formatCurrency(lossValue);
   const formattedTradeMargin = formatCurrency(tradeMargin);
@@ -23,17 +18,13 @@ function Result({
     <div className="result">
       <h2>Your Position Size</h2>
       <AccountSizeSection formattedAccountSize={formattedAccountSize} />
-      <InputValuesSection
-        leverage={leverage}
-        stopLoss={stopLoss}
-        riskPercentage={riskPercentage}
-      />
+
+      <InputValuesSection />
+
       <ResultNumberSection
-        isCorrect={isCorrect}
         formattedLossValue={formattedLossValue}
         formattedTradeMargin={formattedTradeMargin}
         formattedPosSize={formattedPosSize}
-        forexLotSize={forexLotSize}
       />
     </div>
   );

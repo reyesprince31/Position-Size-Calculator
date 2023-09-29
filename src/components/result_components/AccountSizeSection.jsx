@@ -1,5 +1,3 @@
-import React from "react";
-
 function AccountSizeSection({ formattedAccountSize }) {
   return (
     <div className="account-size">

@@ -1,7 +1,4 @@
-import React from "react";
-
 function ResultNumberSection({
-  isCorrect,
   formattedLossValue,
   formattedTradeMargin,
   formattedPosSize,
