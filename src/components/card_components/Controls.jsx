@@ -1,4 +1,4 @@
-import Button from "../Button";
+import Button from "../../ui/Button";
 import Inputs from "./Inputs";
 function Controls({
   reset,
