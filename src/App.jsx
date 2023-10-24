@@ -1,8 +1,8 @@
-import Card from "./components/card_components/Card";
+import Card from "./components/Card";
 
 export default function App() {
   return (
-    <div className="App">
+    <div className="flex justify-center h-screen items-center">
       <Card />
     </div>
   );
