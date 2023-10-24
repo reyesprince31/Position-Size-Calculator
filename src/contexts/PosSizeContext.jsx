@@ -1,5 +1,5 @@
-// usePositionCalculator.js
-import { useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
+
 import {
   calculateDirection,
   calculateLotSize,
@@ -10,20 +10,20 @@ import {
   calculateValueAtRisk,
 } from "../utils/helpers";
 
-const initialState = {
+const PosSizeContext = createContext();
+
+const initialItems = {
   direction: "",
   target: 0,
   loss: 0,
   ratio: 0,
   tradeMargin: 0,
   valueAtRisk: 0,
-  potentialProfit: 0,
   posSize: 0,
   lotSize: 0,
 };
 
-function positionCalculatorReducer(state, action) {
-  // ... Your existing reducer logic here ...
+function reducer(state, action) {
   const { balance, riskPerTrade, entryPrice, stopLoss, targetPrice, leverage } =
     action.payload;
 
@@ -40,24 +40,48 @@ function positionCalculatorReducer(state, action) {
   const tradeMargin = calculateTradeMargin(valueAtRisk, leverage, stopLoss);
   const potentialGain = calculatePotentialGain(leverage, target);
   const potentialProfit = calculatePotentialProfit(tradeMargin, potentialGain);
+
+  const posSize = leverage * tradeMargin;
   const lotSize = calculateLotSize(valueAtRisk, stopLoss);
+
+  switch (action.type) {
+    case "calculate":
+      return {
+        ...state,
+        direction,
+        target,
+        loss,
+        ratio,
+        tradeMargin,
+        valueAtRisk,
+        potentialProfit,
+        posSize,
+        lotSize,
+      };
+    case "reset":
+      return {
+        ...state,
+      };
+
+    default:
+      return state;
+  }
+}
+function PosSizeProvider({ children }) {
+  const [state, dispatch] = useReducer(reducer, initialItems);
+
+  return (
+    <PosSizeContext.Provider value={{ state, dispatch }}>
+      {children}
+    </PosSizeContext.Provider>
+  );
 }
 
-export function usePositionCalculator() {
-  const [state, dispatch] = useReducer(positionCalculatorReducer, initialState);
+function usePositionCalculator() {
+  const context = useContext(PosSizeContext);
 
-  const calculatePosition = (payload) => {
-    dispatch({ type: "calculate", payload });
-  };
-
-  const resetPosition = () => {
-    dispatch({ type: "reset" });
-  };
-
-  return {
-    state,
-    dispatch,
-    calculatePosition,
-    resetPosition,
-  };
+  return context;
 }
+
+// eslint-disable-next-line react-refresh/only-export-components
+export { PosSizeProvider, usePositionCalculator };
