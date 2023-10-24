@@ -5,7 +5,7 @@ function Ratio({ direction, target, loss, ratio }) {
     <div className="mt-2 py-6 border-b-[1px] text-slate-100 text-sm ">
       <ResultList>
         Direction
-        <span className="font-semibold">{direction ? "direction" : "-"}</span>
+        <span className="font-semibold">{direction ? direction : "-"}</span>
       </ResultList>
       <ResultList>
         Target %<span className="font-semibold">{target}%</span>
