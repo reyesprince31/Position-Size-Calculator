@@ -1,5 +1,5 @@
 import Button from "../../ui/Button";
-import Inputs from "./Inputs";
+import Inputs from "../Inputs";
 function Controls({
   reset,
   calculate,
