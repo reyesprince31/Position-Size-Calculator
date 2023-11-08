@@ -37,7 +37,8 @@ function reducer(state, action) {
   const ratio = (target / loss).toFixed(2);
 
   const valueAtRisk = calculateValueAtRisk(balance, riskPerTrade);
-  const tradeMargin = calculateTradeMargin(valueAtRisk, leverage, stopLoss);
+  const tradeMargin = calculateTradeMargin(valueAtRisk, leverage, loss);
+
   const potentialGain = calculatePotentialGain(leverage, target);
   const potentialProfit = calculatePotentialProfit(tradeMargin, potentialGain);
 

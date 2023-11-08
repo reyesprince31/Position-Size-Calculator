@@ -3,29 +3,24 @@ import FormRow from "../ui/FormRow";
 
 function Inputs({ dispatch }) {
   const [inputs, setInputs] = useState({
-    balance: "100",
-    riskPerTrade: "2",
-    leverage: "125",
-    entryPrice: "4.3",
-    stopLoss: "4.5",
-    targetPrice: "1",
+    balance: "500",
+    riskPerTrade: "5",
+    leverage: "100",
+    entryPrice: "0.5036",
+    stopLoss: "0.4877",
+    targetPrice: "0.55",
   });
 
   const { balance, riskPerTrade, entryPrice, stopLoss, targetPrice, leverage } =
     inputs;
 
   function handleInputChange(key, value) {
-    // Remove leading zeros from the input value
-    const sanitizedValue = value.replace(/^0+/, '');
-
-    // Set the input value as a string
-    setInputs({ ...inputs, [key]: sanitizedValue });
+    setInputs({ ...inputs, [key]: Number(value) });
   }
 
   function handleInputBlur() {
     // Dispatch the "calculate" action on input blur
     if (entryPrice && stopLoss) {
-      console.log("ty");
       dispatch({
         type: "calculate",
         payload: {
