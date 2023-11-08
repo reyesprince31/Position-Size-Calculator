@@ -15,7 +15,11 @@ function Inputs({ dispatch }) {
     inputs;
 
   function handleInputChange(key, value) {
-    setInputs({ ...inputs, [key]: Number(value) });
+    // Remove leading zeros from the input value
+    const sanitizedValue = value.replace(/^0+/, '');
+
+    // Set the input value as a string
+    setInputs({ ...inputs, [key]: sanitizedValue });
   }
 
   function handleInputBlur() {
@@ -41,7 +45,7 @@ function Inputs({ dispatch }) {
       <FormRow label="Balance">
         <input
           className="px-2 py-[1px]"
-          type="text"
+          type="number"
           id="balance"
           onChange={(e) => handleInputChange("balance", e.target.value)}
           onBlur={() => handleInputBlur()}
@@ -52,7 +56,7 @@ function Inputs({ dispatch }) {
       <FormRow label="Risk per trade %">
         <input
           className="px-2 py-[1px]"
-          type="text"
+          type="number"
           id="riskPerTrade"
           onChange={(e) => handleInputChange("riskPerTrade", e.target.value)}
           onBlur={() => handleInputBlur()}
@@ -63,7 +67,7 @@ function Inputs({ dispatch }) {
       <FormRow label="leverage">
         <input
           className="px-2 py-[1px]"
-          type="text"
+          type="number"
           id="leverage"
           onChange={(e) => handleInputChange("leverage", e.target.value)}
           onBlur={() => handleInputBlur()}
@@ -74,7 +78,7 @@ function Inputs({ dispatch }) {
       <FormRow label="Entry price">
         <input
           className="px-2 py-[1px]"
-          type="text"
+          type="number"
           id="entryPrice"
           onChange={(e) => handleInputChange("entryPrice", e.target.value)}
           onBlur={() => handleInputBlur()}
@@ -85,7 +89,7 @@ function Inputs({ dispatch }) {
       <FormRow label="Stop loss">
         <input
           className="px-2 py-[1px]"
-          type="text"
+          type="number"
           id="stopLoss"
           onChange={(e) => handleInputChange("stopLoss", e.target.value)}
           onBlur={() => handleInputBlur()}
@@ -96,7 +100,7 @@ function Inputs({ dispatch }) {
       <FormRow label="Target">
         <input
           className="px-2 py-[1px]"
-          type="text"
+          type="number"
           id="targetPrice"
           onChange={(e) => handleInputChange("targetPrice", e.target.value)}
           onBlur={() => handleInputBlur()}
