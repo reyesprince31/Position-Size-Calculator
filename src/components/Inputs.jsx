@@ -41,7 +41,7 @@ function Inputs({ dispatch }) {
       <FormRow label="Balance">
         <input
           className="px-2 py-[1px]"
-          type="number"
+          type="text"
           id="balance"
           onChange={(e) => handleInputChange("balance", e.target.value)}
           onBlur={() => handleInputBlur()}
@@ -52,7 +52,7 @@ function Inputs({ dispatch }) {
       <FormRow label="Risk per trade %">
         <input
           className="px-2 py-[1px]"
-          type="number"
+          type="text"
           id="riskPerTrade"
           onChange={(e) => handleInputChange("riskPerTrade", e.target.value)}
           onBlur={() => handleInputBlur()}
@@ -63,7 +63,7 @@ function Inputs({ dispatch }) {
       <FormRow label="leverage">
         <input
           className="px-2 py-[1px]"
-          type="number"
+          type="text"
           id="leverage"
           onChange={(e) => handleInputChange("leverage", e.target.value)}
           onBlur={() => handleInputBlur()}
@@ -74,7 +74,7 @@ function Inputs({ dispatch }) {
       <FormRow label="Entry price">
         <input
           className="px-2 py-[1px]"
-          type="number"
+          type="text"
           id="entryPrice"
           onChange={(e) => handleInputChange("entryPrice", e.target.value)}
           onBlur={() => handleInputBlur()}
@@ -85,7 +85,7 @@ function Inputs({ dispatch }) {
       <FormRow label="Stop loss">
         <input
           className="px-2 py-[1px]"
-          type="number"
+          type="text"
           id="stopLoss"
           onChange={(e) => handleInputChange("stopLoss", e.target.value)}
           onBlur={() => handleInputBlur()}
@@ -96,7 +96,7 @@ function Inputs({ dispatch }) {
       <FormRow label="Target">
         <input
           className="px-2 py-[1px]"
-          type="number"
+          type="text"
           id="targetPrice"
           onChange={(e) => handleInputChange("targetPrice", e.target.value)}
           onBlur={() => handleInputBlur()}
